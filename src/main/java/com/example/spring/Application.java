@@ -1,20 +1,19 @@
 package com.example.spring;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.beans.factory.support.DefaultListableBeanFactory;
+import org.springframework.beans.factory.xml.XmlBeanDefinitionReader;
+import org.springframework.core.io.FileSystemResource;
 
-@SpringBootApplication
 public class Application {
 
-	public static void main(String[] args) {
-		System.out.println("hello spring ");
-		ApplicationContext context = SpringApplication.run(Application.class,args);
+    public static void main(String[] args) {
+        System.out.println("Hello Spring");
 
-		Test obj= context.getBean(Test.class);
-		obj.show();
+        DefaultListableBeanFactory factory = new DefaultListableBeanFactory();
+        XmlBeanDefinitionReader reader = new XmlBeanDefinitionReader(factory);
+        reader.loadBeanDefinitions(new FileSystemResource("Springbeen.xml"));
 
-	}
-
+        Test obj = (Test) factory.getBean("test");
+        obj.show();
+    }
 }
