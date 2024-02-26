@@ -15,6 +15,8 @@ public class Application {
 
         Test obj = (Test) context.getBean("test");
         obj.show();
+        obj.getInput();
     }
 }
+
 

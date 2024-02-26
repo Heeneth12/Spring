@@ -3,6 +3,13 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="test" class="com.example.spring.Test"></bean>
+    <bean id="test" class="com.example.spring.Test">
+        <property name="input" value="12"> </property>
+        <property name="laptop" ref="laptop" ></property>
+
+    </bean>
+    <bean id="laptop" class="com.example.spring.Laptop">
+
+    </bean>
 
 </beans>
